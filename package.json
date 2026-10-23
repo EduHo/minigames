@@ -1,0 +1,41 @@
+{
+  "name": "mini-jogos",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python3 tools/serve.py 8123",
+    "check": "node tools/check-layouts.mjs && node tools/check-potions.mjs && node tools/check-azulejos.mjs && node tools/check-casa.mjs && node tools/check-fornada.mjs && node tools/check-colmeia.mjs && node tools/check-letras.mjs",
+    "build:plugins": "esbuild tools/native-plugins.js --bundle --minify --format=iife --outfile=www/js/vendor/native-plugins.js",
+    "build:icons": "node tools/make-icons.mjs",
+    "sync": "npm run build:plugins && npx cap sync android",
+    "android:apk": "npm run sync && sh tools/gradle.sh assembleDebug",
+    "android:release": "npm run sync && sh tools/gradle.sh bundleRelease",
+    "android:run": "npm run sync && npx cap run android",
+    "check:mahjong": "node tools/check-layouts.mjs",
+    "check:potions": "node tools/check-potions.mjs",
+    "check:azulejos": "node tools/check-azulejos.mjs",
+    "check:casa": "node tools/check-casa.mjs",
+    "check:fornada": "node tools/check-fornada.mjs",
+    "check:colmeia": "node tools/check-colmeia.mjs",
+    "check:letras": "node tools/check-letras.mjs"
+  },
+  "dependencies": {
+    "@capacitor-community/in-app-review": "^8.0.0",
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/local-notifications": "^8.3.1",
+    "@capacitor/screen-orientation": "^8.0.2",
+    "@capacitor/splash-screen": "^8.0.2",
+    "@capacitor/status-bar": "^8.0.4"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "esbuild": "^0.28.2",
+    "sharp": "^0.35.5"
+  },
+  "description": "Coleção de jogos simples para telemóvel. Grátis, open source, sem anúncios.",
+  "license": "MIT"
+}

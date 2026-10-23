@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Mini Jogos</string>
+    <string name="title_activity_main">Mini Jogos</string>
+    <string name="package_name">pt.minijogos.jose</string>
+    <string name="custom_url_scheme">pt.minijogos.jose</string>
+</resources>
